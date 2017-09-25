@@ -1,0 +1,11 @@
+value {{searchForm.value | json}}
+<form #searchForm="ngForm">
+  <input *ngFor="let control of controls"
+          type="text"
+          ngModel
+          [name]="control"
+          class="form-control"
+          [placeholder]="control">
+</form>
+
+

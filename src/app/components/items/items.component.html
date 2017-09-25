@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-3">
+    <app-search [controls]="['title', 'price']"
+    (filtersEvent)="updateFilters($event)"></app-search>
+  </div>
+  <div class="col-9">
+    <app-add-item [addItem]="addItem"></app-add-item>
+
+    <select (change)="updateFilterItemPerPage($event)">
+      <option *ngFor="let opt of [2,5,10]">
+        {{opt}}
+      </option>
+    </select>
+    <ngb-pagination [collectionSize]="total"
+                    [pageSize]="filters.itemsPerPage"
+                    [maxSize]="5"
+                    [rotate]="true"
+                    [ellipses]="false"
+                    [boundaryLinks]="true"></ngb-pagination>
+    total: {{total / filters.itemsPerPage}}
+
+    <app-data-grid
+    [items]="items"
+    [config]="['title', 'imgSrc', 'price']"
+    (removeEvent)="removeItem($event)"></app-data-grid>
+  </div>
+</div>

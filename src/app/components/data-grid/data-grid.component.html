@@ -1,0 +1,36 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th *ngFor="let head of config">
+      {{head}}
+    </th>
+    <th>
+      Action
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td *ngFor="let key of config">
+        <div [ngSwitch]="key">
+          <div *ngSwitchCase="'imgSrc'">
+            <img [src]="item[key]" width="50" alt="">
+          </div>
+          <div *ngSwitchCase="'price'">
+            <input class="form-control" [value]="item[key]" >
+          </div>
+          <div *ngSwitchDefault>
+            {{item[key]}}
+          </div>
+        </div>
+      </td>
+      <td>
+        <button (click)="remove(item.id)"
+                class="btn btn-danger">Remove</button>
+      </td>
+      <td>
+        <button class="btn">Add</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

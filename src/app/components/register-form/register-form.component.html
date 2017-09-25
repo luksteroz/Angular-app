@@ -1,0 +1,26 @@
+<div class="alert alert-success">
+  {{registerForm.value|json}}
+</div>
+<form [formGroup]="registerForm">
+  <input type="text" formControlName="name">
+
+
+  <hr>
+  <div formGroupName="interest">
+    <label *ngFor="let item of registerForm.get('interest').value | mapToIterable">
+      {{item}}
+      <input type="checkbox" [formControlName]="item">
+    </label>
+    <div class="badge badge-warning">
+      {{registerForm.get('interest').errors | json}}
+    </div>
+  </div>
+
+  <div formGroupName="emailGroup">
+    <input type="text" formControlName="email">
+    <input type="text" formControlName="emailConfirm">
+    <div class="badge badge-warning">
+      {{registerForm.get('emailGroup').errors | json}}
+    </div>
+  </div>
+</form>

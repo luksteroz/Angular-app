@@ -1,3 +1,17 @@
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+<div class="container-fluid">
+  <app-auth></app-auth>
+  <nav class="nav nav-tabs  mt-4 mb-2">
+    <a class="nav-link nav-item"
+       routerLink="items"
+        routerLinkActive="active">items</a>
+    <a class="nav-link nav-item"
+       routerLink="register-form"
+       routerLinkActive="active">register form</a>
+    <a class="nav-link nav-item"
+       routerLink="workers"
+       routerLinkActive="active">workers</a>
+  </nav>
+
+  <router-outlet></router-outlet>
+
+</div>

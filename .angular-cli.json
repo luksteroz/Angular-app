@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

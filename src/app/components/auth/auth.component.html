@@ -1,0 +1,32 @@
+
+acess: {{authService.access}}
+
+<ng-template #loginFormTpl>
+  value: {{loginForm.value|json}}
+  <br>
+  valid: {{loginForm.valid}}
+  <br>
+
+  <form #loginForm="ngForm" class="form-inline">
+    <input type="text"
+           required
+           minlength="3"
+           [ngModel]="'admin'"
+           name="login"
+           class="form-control">
+    <div class="badge badge-danger">
+      {{loginForm.controls['login']?.errors | json}}
+    </div>
+    <input type="password"
+           required
+           [ngModel]="'admin'"
+           name="password"
+           class="form-control">
+    <div class="badge badge-danger">
+      {{loginForm.controls['password']?.errors | json}}
+    </div>
+    <button (click)="clickButton(loginForm)">Log In</button>
+
+  </form>
+</ng-template>
+<button *ngIf="authService.access; else loginFormTpl" class="btn btn-warning" (click)="logOut()">Log out</button>
